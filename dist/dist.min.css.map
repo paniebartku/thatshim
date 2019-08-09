@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/scss/components/_global.scss"],"names":[],"mappings":"AAAA;EACE,YAAY","file":"./dist.min.css","sourcesContent":["h1 {\r\n  color: green;\r\n}\r\n"],"sourceRoot":""}
