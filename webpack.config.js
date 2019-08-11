@@ -10,18 +10,18 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
 const paths = {
   DIST: path.resolve(__dirname, "dist"),
-  SRC: path.resolve(__dirname, "src")
+  SRC: path.resolve(__dirname, "src"),
 };
 
 module.exports = {
   entry: [path.join(paths.SRC, "index.js")],
   output: {
     path: paths.DIST,
-    filename: "./dist.min.js"
+    filename: "./dist.min.js",
   },
   // Adding jQuery as external library
   externals: {
-    jquery: "jQuery"
+    jquery: "jQuery",
   },
   devtool: "source-map",
   performance: { hints: false },
@@ -32,7 +32,7 @@ module.exports = {
         enforce: "pre",
         exclude: /node_modules/,
         test: /\.js$/,
-        loader: "eslint-loader"
+        loader: "eslint-loader",
       },
       {
         test: /\.js$/,
@@ -40,9 +40,9 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"]
-          }
-        }
+            presets: ["@babel/preset-env"],
+          },
+        },
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -50,10 +50,10 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "../dist/images/[name].[ext]"
-            }
-          }
-        ]
+              name: "../dist/images/[name].[ext]",
+            },
+          },
+        ],
       },
       // compile all .scss files to plain old css
 
@@ -69,28 +69,28 @@ module.exports = {
               sourceMap: true,
               plugins: [
                 require("autoprefixer")({
-                  browserlist: ["> 1%", "last 2 versions"]
-                })
-              ]
-            }
+                  browserlist: ["> 1%", "last 2 versions"],
+                }),
+              ],
+            },
           },
-          { loader: "sass-loader", options: { sourceMap: true } }
-        ]
-      }
-    ]
+          { loader: "sass-loader", options: { sourceMap: true } },
+        ],
+      },
+    ],
   },
   plugins: [
-    new StyleLintPlugin(),
+    // new StyleLintPlugin(),
     // extract css into dedicated file
     new MiniCssExtractPlugin({
       filename: "./dist.min.css",
-      publicPath: "./"
+      publicPath: "./",
     }),
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
-      Popper: "popper.js"
-    })
+      Popper: "popper.js",
+    }),
   ],
   optimization: {
     minimizer: [
@@ -98,10 +98,10 @@ module.exports = {
       new UglifyJSPlugin({
         test: /\.js(\?.*)?$/i,
         cache: true,
-        parallel: true
+        parallel: true,
       }),
       // enable the css minification plugin
-      new OptimizeCSSAssetsPlugin({})
-    ]
-  }
+      new OptimizeCSSAssetsPlugin({}),
+    ],
+  },
 };

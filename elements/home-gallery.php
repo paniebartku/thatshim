@@ -1,17 +1,9 @@
+<section class="polaroidGallery" id="polaroidGallery">
 
 <div class="container">
-    <div class="row">
-        <div class="col-12">
-            <h2>Hello</h2>
-        </div>
-    </div>
-    
 
 
 
-
-
-<div class="my-gallery">
 <div class="row">
 <?php $loop = new WP_Query( array( 'post_type' => 'gallery', 'posts_per_page' => -1));
         if ( $loop->have_posts() ) :
@@ -20,17 +12,15 @@
             
             ?>
         
-
-            <figure class="col-lg-4">
-       
-           <a href="<?php echo $image[0]?>" >
-            <img src="<?php echo $image[0]?>" class="img-fluid"/>
-            </a>
-            <figcaption >caption</figcaption>
-
-           </figure>
    
-           
+           <figure class="polaroidGallery__container">
+            <div class="polaroidGallery__photo"><img class="polaroidGallery__img" src="<?php echo $image[0]?>" alt="Happy Moment"></div>
+            <figcaption class="polaroidGallery__caption">
+              <h3 class="polaroidGallery__text">Happy Moment</h3>
+            </figcaption>
+          </figure>
+
+       
 
         <?php endwhile; 
        endif;
@@ -38,6 +28,58 @@
    ?>
 
 </div>
-</div>
+
 
 </div>
+
+
+<!-- 
+          <figure class="vintalight__container">
+            <div class="vintalight__photo"><img class="vintalight__img" src="https://images.pexels.com/photos/69969/pexels-photo-69969.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Happy Moment"></div>
+            <figcaption class="vintalight__caption">
+              <h3 class="vintalight__text">Happy Moment</h3>
+            </figcaption>
+          </figure>
+          <figure class="vintalight__container">
+            <div class="vintalight__photo"><img class="vintalight__img" src="https://images.pexels.com/photos/247929/pexels-photo-247929.jpeg?h=350&amp;auto=compress&amp;cs=tinysrgb" alt="Happy Moment"></div>
+            <figcaption class="vintalight__caption">
+              <h3 class="vintalight__text">Happy Moment</h3>
+            </figcaption>
+          </figure>
+          <figure class="vintalight__container">
+            <div class="vintalight__photo"><img class="vintalight__img" src="https://images.pexels.com/photos/92866/pexels-photo-92866.jpeg?h=350&amp;auto=compress&amp;cs=tinysrgb" alt="Happy Moment"></div>
+            <figcaption class="vintalight__caption">
+              <h3 class="vintalight__text">Happy Moment</h3>
+            </figcaption>
+          </figure>
+          <figure class="vintalight__container">
+            <div class="vintalight__photo"><img class="vintalight__img" src="https://images.pexels.com/photos/331986/pexels-photo-331986.jpeg?h=350&amp;auto=compress&amp;cs=tinysrgb" alt="Happy Moment"></div>
+            <figcaption class="vintalight__caption">
+              <h3 class="vintalight__text">Happy Moment</h3>
+            </figcaption>
+          </figure>
+          <figure class="vintalight__container">
+            <div class="vintalight__photo"><img class="vintalight__img" src="https://images.pexels.com/photos/296649/pexels-photo-296649.jpeg?h=350&amp;auto=compress&amp;cs=tinysrgb" alt="Happy Moment"></div>
+            <figcaption class="vintalight__caption">
+              <h3 class="vintalight__text">Happy Moment</h3>
+            </figcaption>
+          </figure>
+          <figure class="vintalight__container">
+            <div class="vintalight__photo"><img class="vintalight__img" src="https://images.pexels.com/photos/219776/pexels-photo-219776.jpeg?h=350&amp;auto=compress&amp;cs=tinysrgb" alt="Happy Moment"></div>
+            <figcaption class="vintalight__caption">
+              <h3 class="vintalight__text">Happy Moment</h3>
+            </figcaption>
+          </figure>
+		  <figure class="vintalight__container">
+            <div class="vintalight__photo"><img class="vintalight__img" src="https://images.pexels.com/photos/92866/pexels-photo-92866.jpeg?h=350&amp;auto=compress&amp;cs=tinysrgb" alt="Happy Moment"></div>
+            <figcaption class="vintalight__caption">
+              <h3 class="vintalight__text">Happy Moment</h3>
+            </figcaption>
+          </figure>
+		        <figure class="vintalight__container">
+            <div class="vintalight__photo"><img class="vintalight__img" src="https://images.pexels.com/photos/296649/pexels-photo-296649.jpeg?h=350&amp;auto=compress&amp;cs=tinysrgb" alt="Happy Moment"></div>
+            <figcaption class="vintalight__caption">
+              <h3 class="vintalight__text">Happy Moment</h3>
+            </figcaption>
+          </figure> -->
+    </section>
