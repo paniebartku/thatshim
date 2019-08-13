@@ -23,14 +23,6 @@
             </figcaption>
           </figure>
 
-          <!-- <div class="col-md-6">
-        <a class="pop" href="<?php// echo $image[0]; ?>" data-footer="<?php// echo "elo";?>" data-toggle="lightbox" data-gallery="example-gallery" >
-            <img class="img-fluid" src="<?php //echo $image[0]; ?>" alt="<?php// echo ''; ?>" />
-            </a> 
-            <div class="block-garden__info">
-           
-            </div>
-        </div> -->
 
         <?php endwhile; 
        endif;
@@ -42,7 +34,11 @@
 
 </div>
 
-
+<style>
+.polaroidGallery__photo::before {
+  content: "Ver fotos";
+}
+</style>
 <!-- 
           <figure class="vintalight__container">
             <div class="vintalight__photo"><img class="vintalight__img" src="https://images.pexels.com/photos/69969/pexels-photo-69969.jpeg?w=1260&amp;h=750&amp;auto=compress&amp;cs=tinysrgb" alt="Happy Moment"></div>
