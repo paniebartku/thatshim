@@ -14,13 +14,23 @@
         
    
            <figure class="polaroidGallery__container">
+           <a class="pop" href="<?php echo $image[0]; ?>" data-footer="<?php echo "elo";?>" data-toggle="lightbox" data-gallery="example-gallery" >
+
             <div class="polaroidGallery__photo"><img class="polaroidGallery__img" src="<?php echo $image[0]?>" alt="Happy Moment"></div>
+            </a> 
             <figcaption class="polaroidGallery__caption">
               <h3 class="polaroidGallery__text">Happy Moment</h3>
             </figcaption>
           </figure>
 
-       
+          <!-- <div class="col-md-6">
+        <a class="pop" href="<?php// echo $image[0]; ?>" data-footer="<?php// echo "elo";?>" data-toggle="lightbox" data-gallery="example-gallery" >
+            <img class="img-fluid" src="<?php //echo $image[0]; ?>" alt="<?php// echo ''; ?>" />
+            </a> 
+            <div class="block-garden__info">
+           
+            </div>
+        </div> -->
 
         <?php endwhile; 
        endif;

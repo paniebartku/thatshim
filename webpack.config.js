@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const path = require("path");
 const webpack = require("webpack"); // reference to webpack Object
 
@@ -80,7 +82,7 @@ module.exports = {
     ],
   },
   plugins: [
-    // new StyleLintPlugin(),
+    new StyleLintPlugin(),
     // extract css into dedicated file
     new MiniCssExtractPlugin({
       filename: "./dist.min.css",
