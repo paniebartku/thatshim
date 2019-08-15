@@ -20,6 +20,7 @@ class Functions {
 
     public function theme_setup_core() {
         add_theme_support( 'post-thumbnails' );
+        add_theme_support( 'custom-logo');
     }
 
   

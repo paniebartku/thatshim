@@ -97,7 +97,6 @@
         }
       }
     }
-<<<<<<< HEAD
   }
   &__caption {
     display: flex;
@@ -118,8 +117,6 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-=======
->>>>>>> 6fdc1dda5df155ec8b20e5ea800e1bd0d1243e7e
   }
   &__photo {
     position: relative;
@@ -152,92 +149,3 @@
 .polaroidGallery__container:hover .polaroidGallery__photo::before {
   transform: scale(1);
 }
-<<<<<<< HEAD
-=======
-.polaroidGallery__container.active,
-.polaroidGallery__container.active:hover {
-  transform: rotate(0) scale(1.25);
-}
-@media screen and (max-width: 500px) {
-  .polaroidGallery__container.active,
-  .polaroidGallery__container.active:hover {
-    transform: rotate(0) scale(1.15);
-  }
-}
-.polaroidGallery__container.active {
-  position: relative;
-}
-.polaroidGallery__container.active .polaroidGallery__photo {
-  cursor: default;
-}
-.polaroidGallery__container.active .polaroidGallery__photo::before {
-  display: none;
-}
-.polaroidGallery__photo {
-  position: relative;
-  width: 9.25em;
-  height: 9.25em;
-  margin: 0.625em auto 0;
-  overflow: hidden;
-  cursor: pointer;
-}
-@media screen and (max-width: 500px) {
-  .polaroidGallery__photo {
-    width: 6.475em;
-    height: 6.475em;
-    margin: 0.4375em auto 0;
-  }
-}
-.polaroidGallery__photo::before {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  font-size: 1em;
-  font-family: "Roboto", sans-serif;
-  transform: scale(0);
-  transition: all 0.25s;
-}
-.polaroidGallery__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.polaroidGallery__caption {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 2.375em;
-}
-@media screen and (max-width: 500px) {
-  .polaroidGallery__caption {
-    height: 1.6625em;
-  }
-}
-.polaroidGallery__text {
-  color: #222;
-  font-size: 1em;
-  font-family: "Nanum Pen Script", cursive;
-}
-.polaroidGallery-overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
-  opacity: 0;
-  z-index: 10000;
-  transition: opacity 0.5s;
-  top: 0;
-}
-.polaroidGallery-overlay.active {
-  opacity: 1;
-}
->>>>>>> 6fdc1dda5df155ec8b20e5ea800e1bd0d1243e7e

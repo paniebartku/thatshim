@@ -9,4 +9,40 @@
     <?php wp_head(); ?>
 </head>
 <body>
-  
+    <header class="header">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+    <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
+            <?php
+            $custom_logo_id = get_theme_mod( 'custom_logo' );
+            $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+            echo '<img class="img-fluid" src="'. esc_url( $logo[0] ) .'">';?>
+        </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">O mnie </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Galeria </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Kontakt </a>
+      </li>
+    </ul>
+    </div>
+  </div>
+</nav>
+
+    </header>
+    <style>
+.header{
+ background:
+ url('<?php image_acf_background_css(get_field("header_image")) ?>') no-repeat bottom;
+
+}
+</style>
