@@ -14,13 +14,16 @@ class RemovePosts extends Functions {
     }
     function disable_posts_admin_menu_redirect() {
         global $pagenow;
-        if ($pagenow === 'edit.php') {
+        if ($pagenow === 'edit-tags.php') {
             wp_redirect(admin_url()); exit;
         }
+        
     }
+    
     function remove_wp_nodes() {
         global $wp_admin_bar;   
         $wp_admin_bar->remove_node( 'new-post' );
+        $wp_admin_bar->remove_node( 'post-new' );
         $wp_admin_bar->remove_node( 'new-page' );
 
         }
@@ -35,6 +38,3 @@ class RemovePosts extends Functions {
                 }
 }
 new RemovePosts;
-
-
-

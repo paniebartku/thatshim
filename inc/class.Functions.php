@@ -15,7 +15,9 @@ class Functions {
         add_action( 'admin_head', array($this, 'dashboard_area_styles') );
         add_action( 'init', array( $this, 'cpt_photo_gallery' ) );
         add_action( 'manage_posts_custom_column', array($this, 'gallery_column_content'), 5, 2);
-     
+        add_action( 'init', array( $this, 'removes' ) );
+        add_action('wp_dashboard_setup', array($this, 'disable_default_dashboard_widgets'), 666 );
+
     }
 
     public function theme_setup_core() {
@@ -70,6 +72,11 @@ class Functions {
             echo   the_post_thumbnail( 'featured-thumbnail', array( 'class' => 'img-fluid' ) );
         }
     }
+
+    public function removes(){
+        remove_post_type_support( 'page', 'thumbnail');
+        remove_action('welcome_panel', 'wp_welcome_panel');
+    }
   
 
     public function dashboard_area_styles() {
@@ -79,8 +86,36 @@ class Functions {
             height: auto;
             max-width: 100%;
         }
+        #wp-admin-bar-new-content {
+            display:none;
+        }
     </style>';
     }
+
+    function disable_default_dashboard_widgets() {
+        global $wp_meta_boxes;
+        unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_activity']);
+        unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+        unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
+        unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+        unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
+        unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts']);
+    
+    }
+
 }
 
 $functions = new Functions;
+
+
+
+function your_dashboard_widget() { ?>
+    <h3>Dzień dobry</h3>
+    <p>Aby edytować zawartość swojej strony kliknij na link "Twoja strona" w lewym menu</p>
+    <?php };
+
+    
+    function add_your_dashboard_widget() {
+      wp_add_dashboard_widget( 'your_dashboard_widget', __( 'Uwaga!' ), 'your_dashboard_widget' );
+    }
+    add_action('wp_dashboard_setup', 'add_your_dashboard_widget' );

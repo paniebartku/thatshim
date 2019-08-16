@@ -1,13 +1,22 @@
 .header {
   padding-bottom: 40%;
+  @media (max-width: 420px) {
+    background-size: cover !important;
+  }
   nav {
     background-color: transparent;
     padding: 0;
     .container {
       margin-top: 10rem;
+      @media (max-width: 420px) {
+        margin-top: 0;
+      }
       background-color: rgba(3, 3, 3, 0.5);
       padding-left: 0;
       padding-right: 0;
+    }
+    #navbarNav {
+      justify-content: center;
     }
     .navbar-brand {
       margin-right: 0;
@@ -16,6 +25,9 @@
       padding-right: 1.5rem;
       padding-top: 0;
       padding-bottom: 0;
+      @media (max-width: 420px) {
+        max-width: 70%;
+      }
     }
     .nav-item {
       transition: all 0.4s ease;

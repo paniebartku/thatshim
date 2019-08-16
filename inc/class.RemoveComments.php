@@ -9,6 +9,7 @@ class RemoveComments extends Functions {
         add_action('admin_init', array ($this, 'disable_comments_admin_menu_redirect' ) );
         add_action('admin_init', array($this, 'disable_comments_dashboard'));
         add_action('init', array($this, 'disable_comments_admin_bar'));
+        add_action('wp_before_admin_bar_render', array($this, 'disable_icon_admin_bar' ) );
     
     }   
     function disable_comments_post_types_support() {
@@ -29,10 +30,15 @@ class RemoveComments extends Functions {
     } 
     function disable_comments_admin_menu() {
         remove_menu_page('edit-comments.php');
+        remove_submenu_page( 'options-general.php','options-discussion.php' ); 
+       
     }
     function disable_comments_admin_menu_redirect() {
         global $pagenow;
         if ($pagenow === 'edit-comments.php') {
+            wp_redirect(admin_url()); exit;
+        }
+        if ($pagenow === 'options-discussion.php') {
             wp_redirect(admin_url()); exit;
         }
     }
@@ -43,6 +49,10 @@ class RemoveComments extends Functions {
         if (is_admin_bar_showing()) {
             remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
         }
+    }
+    function disable_icon_admin_bar() {
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu('comments');
     }
 }
 new RemoveComments;
