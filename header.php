@@ -23,17 +23,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">O mnie </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Galeria </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Kontakt </a>
-      </li>
-    </ul>
+  <?php do_action('primary_nav'); ?>
     </div>
   </div>
 </nav>

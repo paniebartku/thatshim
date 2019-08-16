@@ -39,5 +39,4 @@
   content: "Ver fotos";
 }
 </style>
-
-    </section>
+</section>

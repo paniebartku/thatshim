@@ -12,7 +12,7 @@ import "ekko-lightbox/dist/ekko-lightbox.css";
 import "./scss/style.scss";
 
 //import polaroidGallery from "./js/polaroidGallery.js";
-
+import fancyScroll from "./js/fancyScroll.js";
 $(document).ready(function() {
   $(document).on("click", '[data-toggle="lightbox"]', function(event) {
     event.preventDefault();
