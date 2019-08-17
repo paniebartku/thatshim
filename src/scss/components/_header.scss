@@ -1,5 +1,15 @@
-.header {
+.header-main {
   padding-bottom: 40%;
+  .container {
+    margin-top: 10rem;
+  }
+}
+.header {
+  padding-bottom: 0;
+  background-color: black;
+}
+.header-main,
+.header {
   background-repeat: no-repeat;
   background-position: bottom;
   @media (max-width: 420px) {
@@ -9,7 +19,6 @@
     background-color: transparent;
     padding: 0;
     .container {
-      margin-top: 10rem;
       @media (max-width: 420px) {
         margin-top: 0;
       }

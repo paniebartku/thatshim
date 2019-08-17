@@ -10,7 +10,7 @@
     transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow 0.5s, margin 0.5s;
     &:hover {
       box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.4);
-      z-index: 100;
+      z-index: 100 !important;
       @media (max-width: 700px) {
         margin: 0 25px;
       }
@@ -103,15 +103,18 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 2.375em;
+    min-height: 2.375em;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
     @media (max-width: 500px) {
       height: 1.6625em;
     }
   }
   &__text {
     color: #222;
-    font-size: 1em;
-    font-family: "Nanum Pen Script", cursive;
+    font-size: 2rem;
+    font-family: "Poiret One", cursive;
   }
   &__img {
     width: 100%;

@@ -19,6 +19,7 @@ class Functions {
         add_action( 'init', array( $this, 'removes' ) );
         add_action('wp_dashboard_setup', array($this, 'disable_default_dashboard_widgets'), 666 );
         add_action('wp_dashboard_setup', array($this, 'add_your_dashboard_widget') );
+        add_action( 'pre_get_posts', array($this, 'parse_request') );
 
     }
 
@@ -46,6 +47,7 @@ class Functions {
   
     public function add_filters(){
         add_filter( 'manage_posts_columns', array($this, 'gallery_column'), 5);
+        add_filter( 'post_type_link', array($this, 'remove_slug' ),10, 3 );
     }
 
     public function load_scripts_and_styles() {
@@ -79,18 +81,19 @@ class Functions {
     }
 
     public function gallery_column($defaults){
-        $defaults['riv_post_thumbs'] = __('Logo');
+        $defaults['riv_post_thumbs'] = __('Zdjęcie');
         return $defaults;
     }  
 
     public function gallery_column_content($column_name, $id){
         if($column_name === 'riv_post_thumbs'){
-            echo   the_post_thumbnail( 'featured-thumbnail', array( 'class' => 'img-fluid' ) );
+            echo   the_post_thumbnail( 'featured-thumbnail', array( 'class' => 'img-fluid gallery_admin' ) );
         }
     }
 
     public function removes(){
         remove_post_type_support( 'page', 'thumbnail');
+        remove_post_type_support( 'page', 'editor');
         remove_action('welcome_panel', 'wp_welcome_panel');
     }
   
@@ -98,12 +101,15 @@ class Functions {
     public function dashboard_area_styles() {
     echo 
     '<style>
-        .img-fluid {
+        .gallery_admin {
             height: auto;
-            max-width: 100%;
+            max-width: 70%;
         }
         #wp-admin-bar-new-content {
             display:none;
+        }
+        #wp-admin-bar-archive {
+            display: none;
         }
     </style>';
     }
@@ -121,6 +127,26 @@ class Functions {
     function add_your_dashboard_widget() {
         wp_add_dashboard_widget( 'your_dashboard_widget', __( 'Uwaga!' ), 'your_dashboard_widget' );
     }
+
+    public function remove_slug( $post_link, $post ) {
+        
+        if ( 'gallery' != $post->post_type || 'publish' != $post->post_status ) {
+        return $post_link;
+        }
+         
+        $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
+        return $post_link;
+    }
+    public function parse_request( $query ) {
+            
+        if ( ! $query->is_main_query() || 2 != count( $query->query ) || ! isset( $query->query['page'] ) ) {
+            return;
+        }
+    
+        if ( ! empty( $query->query['name'] ) ) {
+            $query->set( 'post_type', array( 'post', 'gallery') );
+        }
+    }     
 
 
 }
