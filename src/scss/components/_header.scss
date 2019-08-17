@@ -1,7 +1,9 @@
 .header {
   padding-bottom: 40%;
+  background-repeat: no-repeat;
+  background-position: bottom;
   @media (max-width: 420px) {
-    background-size: cover !important;
+    background-size: cover;
   }
   nav {
     background-color: transparent;
@@ -20,7 +22,6 @@
     }
     .navbar-brand {
       margin-right: 0;
-      //background-color: rgba(3, 3, 3, 0.5);
       padding-left: 1.5rem;
       padding-right: 1.5rem;
       padding-top: 0;
@@ -35,32 +36,30 @@
         background: #030303;
       }
     }
-    .nav-link {
-      //background-color: rgba(3, 3, 3, 0.5);
-      color: white !important;
-      height: 8.8rem;
-      text-align: center;
-      padding-left: 2rem !important;
-      padding-right: 2rem !important;
-      padding-top: 0 !important;
-      padding-bottom: 0 !important;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Poiret One", cursive;
-      font-size: 2.1rem;
+    .navbar-nav {
+      .nav-link {
+        color: white;
+        height: 8.8rem;
+        text-align: center;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 0;
+        padding-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Poiret One", cursive;
+        font-size: 2.1rem;
+      }
     }
   }
 }
-.navbar-light {
-  color: white;
-  .navbar-toggler {
-    border-color: white;
-    border-radius: 50%;
-    padding: 1rem;
-    margin-right: 2rem;
-  }
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-  }
+.navbar-toggler {
+  border-color: white;
+  border-radius: 50%;
+  padding: 1rem;
+  margin-right: 2rem;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }

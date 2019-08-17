@@ -11,7 +11,7 @@
 <body>
     <header class="header">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
     <div class="container">
     <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>">
             <?php
@@ -31,8 +31,6 @@
     </header>
     <style>
 .header{
- background:
- url('<?php image_acf_background_css(get_field("header_image")) ?>') no-repeat bottom;
-
+ background-image:url('<?php image_acf_background_css(get_field("header_image")) ?>');
 }
 </style>

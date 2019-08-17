@@ -1,15 +1,16 @@
 <?php 
 class Functions {
     public function __construct() {
+  
+
         $this->add_actions();
         $this->add_filters();
         $this->theme_setup();
-        
-    }
-    public function theme_setup() {
-        add_action( 'after_setup_theme', array( $this, 'theme_setup_core' ) );
+
     }
 
+
+   
     public function add_actions() {
         add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts_and_styles' ) );
         add_action( 'admin_head', array($this, 'dashboard_area_styles') );
@@ -17,8 +18,23 @@ class Functions {
         add_action( 'manage_posts_custom_column', array($this, 'gallery_column_content'), 5, 2);
         add_action( 'init', array( $this, 'removes' ) );
         add_action('wp_dashboard_setup', array($this, 'disable_default_dashboard_widgets'), 666 );
+        add_action('wp_dashboard_setup', array($this, 'add_your_dashboard_widget') );
 
     }
+
+    
+  
+    public function theme_setup() {
+        add_action( 'after_setup_theme', array( $this, 'theme_setup_core' ) );
+       
+    function your_dashboard_widget() { ?>
+        <h3>Dzień dobry</h3>
+        <p>Aby edytować zawartość swojej strony kliknij na link "Twoja strona" w lewym menu</p>
+        <?php 
+    }
+        
+    }
+
 
     public function theme_setup_core() {
         add_theme_support( 'post-thumbnails' );
@@ -102,20 +118,14 @@ class Functions {
         unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_recent_drafts']);
     
     }
+    function add_your_dashboard_widget() {
+        wp_add_dashboard_widget( 'your_dashboard_widget', __( 'Uwaga!' ), 'your_dashboard_widget' );
+    }
+
 
 }
+
 
 $functions = new Functions;
 
 
-
-function your_dashboard_widget() { ?>
-    <h3>Dzień dobry</h3>
-    <p>Aby edytować zawartość swojej strony kliknij na link "Twoja strona" w lewym menu</p>
-    <?php };
-
-    
-    function add_your_dashboard_widget() {
-      wp_add_dashboard_widget( 'your_dashboard_widget', __( 'Uwaga!' ), 'your_dashboard_widget' );
-    }
-    add_action('wp_dashboard_setup', 'add_your_dashboard_widget' );
