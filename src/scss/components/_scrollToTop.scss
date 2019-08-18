@@ -1,0 +1,22 @@
+.scrollToTop {
+  height: 40px;
+  width: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 2px;
+  background: black url("../../src/img/cd-top-arrow.svg") no-repeat center 50%;
+  opacity: 1;
+  transition: visibility 0.2s, opacity 0.2s;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  &:hover {
+    transition: opacity 0.3s 0s, visibility 0s 0s, background-color 0.3s 0s;
+    background-color: #3c3a3a;
+  }
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
