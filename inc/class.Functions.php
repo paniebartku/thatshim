@@ -2,14 +2,11 @@
 class Functions {
     public function __construct() {
   
-
         $this->add_actions();
         $this->add_filters();
         $this->theme_setup();
 
     }
-
-
    
     public function add_actions() {
         add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts_and_styles' ) );
@@ -20,11 +17,10 @@ class Functions {
         add_action('wp_dashboard_setup', array($this, 'disable_default_dashboard_widgets'), 666 );
         add_action('wp_dashboard_setup', array($this, 'add_your_dashboard_widget') );
         add_action( 'pre_get_posts', array($this, 'parse_request') );
+        add_action( 'widgets_init', array( $this, 'footer_sidebars' ) );
 
     }
 
-    
-  
     public function theme_setup() {
         add_action( 'after_setup_theme', array( $this, 'theme_setup_core' ) );
        
@@ -32,10 +28,9 @@ class Functions {
         <h3>Dzień dobry</h3>
         <p>Aby edytować zawartość swojej strony kliknij na link "Twoja strona" w lewym menu</p>
         <?php 
-    }
+        }
         
     }
-
 
     public function theme_setup_core() {
         add_theme_support( 'post-thumbnails' );
@@ -146,7 +141,37 @@ class Functions {
         if ( ! empty( $query->query['name'] ) ) {
             $query->set( 'post_type', array( 'post', 'gallery') );
         }
-    }     
+    }  
+    public function footer_sidebars() {
+        register_sidebar( array(
+            'name' => __( 'Footer sidebar 1'),
+            'id' => 'footer-sidebar-1',
+            'description' => __( 'First footer sidebar'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="footer-main__sidebar-title">',
+            'after_title'   => '</h3>',
+            ) );
+        register_sidebar( array(
+            'name' => __( 'Footer sidebar 2'),
+            'id' => 'footer-sidebar-2',
+            'description' => __( 'Second footer sidebar'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="footer-main__sidebar-title">',
+            'after_title'   => '</h3>',
+            ) );
+        register_sidebar( array(
+            'name' => __( 'Footer sidebar 3'),
+            'id' => 'footer-sidebar-3',
+            'description' => __( 'Third footer sidebar'),
+            'before_widget' => '<div id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h3 class="footer-main__sidebar-title">',
+            'after_title'   => '</h3>',
+            ) );
+    
+    }
 
 
 }
