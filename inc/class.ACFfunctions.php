@@ -22,6 +22,11 @@ class ACFfunctions extends Functions {
                echo $text;
            }
         }
+        function textarea_acf($text){
+            if( !empty($text) ){ 
+               echo $text;
+           }
+        }
 
     }   
 }
