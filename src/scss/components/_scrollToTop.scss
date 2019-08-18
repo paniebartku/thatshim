@@ -10,6 +10,7 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
+  z-index: 999;
   cursor: pointer;
   &:hover {
     transition: opacity 0.3s 0s, visibility 0s 0s, background-color 0.3s 0s;
