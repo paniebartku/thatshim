@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poiret+One&display=swap&subset=latin-ext");
 //font-family: 'Poiret One', cursive;
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap&subset=latin-ext");
+//font-family: 'Montserrat', sans-serif;
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,4 +12,39 @@ html {
 }
 body {
   font-size: 1.6rem;
+  overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+h2 {
+  font-size: 3.2rem;
+}
+h3 {
+  font-size: 2.8rem;
+}
+h4 {
+  font-size: 2.4rem;
+}
+h5 {
+  font-size: 2rem;
+}
+p,
+li,
+h6 {
+  font-size: 1.6rem;
+  line-height: 1.7;
+}
+.global {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  &__header {
+    text-align: center;
+    padding-bottom: 8rem;
+  }
+  &__image {
+    margin-bottom: 2rem;
+  }
 }

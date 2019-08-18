@@ -1,4 +1,9 @@
 .polaroidGallery {
+  padding-bottom: 10rem;
+  &__header {
+    text-align: center;
+    padding-bottom: 8rem;
+  }
   &__container {
     position: relative;
     width: 90%;
@@ -17,7 +22,7 @@
     }
     @media (max-width: 500px) {
       max-width: 7.35em;
-      height: 8.575em;
+      height: 9.575em;
     }
     &:nth-child(6n + 1) {
       transform: translate(40px, 30px) rotate(-30deg);
@@ -108,7 +113,7 @@
     padding-right: 1rem;
     text-align: center;
     @media (max-width: 500px) {
-      height: 1.6625em;
+      height: 2.6625em;
     }
   }
   &__text {
@@ -148,7 +153,40 @@
       margin: 0.4375em auto 0;
     }
   }
+  &__container--preview {
+    position: relative;
+    width: 90%;
+    max-width: 10.5em;
+    height: 12.25em;
+    background-color: #fff;
+    font-size: 30px;
+    box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow 0.5s, margin 0.5s;
+    &:hover {
+      box-shadow: 0 4px 8px 3px rgba(0, 0, 0, 0.4);
+      z-index: 100 !important;
+      @media (max-width: 700px) {
+        margin: 0 25px;
+      }
+    }
+    @media (max-width: 500px) {
+      max-width: 7.35em;
+      height: 8.575em;
+    }
+  }
 }
 .polaroidGallery__container:hover .polaroidGallery__photo::before {
   transform: scale(1);
+}
+.singleGallery {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  &__header {
+    text-align: center;
+    padding-bottom: 3rem;
+  }
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
 }

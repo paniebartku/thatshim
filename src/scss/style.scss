@@ -1,6 +1,5 @@
 // b4 grid
 // Required
-// @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
@@ -15,7 +14,12 @@
 @import "~bootstrap/scss/navbar";
 @import "~bootstrap/scss/modal";
 @import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/forms";
+// Site
 @import "components/_global";
 @import "components/_gallery";
 @import "components/_header";
-@import "components/_about";
+@import "components/_footer";
+@import "components/_scrollToTop";
+@import "components/_buttons";
+@import "components/_form";

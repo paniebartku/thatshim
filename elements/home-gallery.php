@@ -1,7 +1,11 @@
 <section class="polaroidGallery" id="polaroidGallery">
 
 <div class="container">
-
+  <div class="row polaroidGallery__header">
+        <div class="col-12">
+          <?php header_h1_acf(get_field('gallery_header')); ?> 
+        </div>
+    </div>
 
 
 <div class="row" style="justify-content: center">

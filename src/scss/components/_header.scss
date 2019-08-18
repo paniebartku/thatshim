@@ -11,7 +11,7 @@
 .header-main,
 .header {
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: 50% 50%;
   @media (max-width: 420px) {
     background-size: cover;
   }
@@ -31,10 +31,7 @@
     }
     .navbar-brand {
       margin-right: 0;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-      padding-top: 0;
-      padding-bottom: 0;
+      padding: 0 1.5rem;
       @media (max-width: 420px) {
         max-width: 70%;
       }
@@ -50,10 +47,7 @@
         color: white;
         height: 8.8rem;
         text-align: center;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 0;
-        padding-bottom: 0;
+        padding: 0 2rem;
         display: flex;
         align-items: center;
         justify-content: center;
